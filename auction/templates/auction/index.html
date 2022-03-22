@@ -1,0 +1,194 @@
+{% extends 'auction/base.html' %} {% block content %}
+{% load static %}
+<h1>Home Page</h1>
+
+<div class="card">
+  <div class="card-header d-flex justify-content-center">Auction Details</div>
+  <div class="card-body">
+    <form method="POST" action="">
+      {% csrf_token %}
+      <input type="submit" value="Start" class="btn btn-info" />
+    </form>
+  </div>
+
+  <br />
+
+  <div class="card-header d-flex justify-content-center">Auction Details</div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <th>Round</th>
+        <th>Auction Status</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+      </thead>
+      <tbody>
+        {% for i in rounds %}
+        <tr>
+          <td>{{ i.roundName }}</td>
+          <td>{{ i.actionStatus }}</td>
+          <td>{{ i.start_time }}</td>
+          <td>{{ i.end_time }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% comment %} ===================== {% endcomment %}
+  <section class="container-fluid">
+    <section id="nav">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid justify-content-center">
+          <a class="navbar-brand" href="#">
+            <img
+            src="{% static 'img/all-logo-01.png' %}"
+              alt=""
+              class="d-inline-block align-text-top"
+              id="imgtop"
+            />
+          </a>
+        </div>
+      </nav>
+    </section>
+
+    <section class="main" id="main_id">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <div class="card" style="width: 100%">
+              <div class="card-body">
+                <h5 class="card-title">Auction Details</h5>
+                <hr />
+                <div class="auction">
+                  <h3>Spectrum : <span> 2.3Ghz & 2.6 Ghz </span></h3>
+                  <h3>Base Price : <span>USD 6.00 Milllion </span></h3>
+                  <h3>Phase : <span> Phase 1 </span></h3>
+                  <h3>Number of Blocks : <span> 22 </span></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card" style="width: 100%">
+              <div class="card-body">
+                <h5 class="card-title">Now Bidding For</h5>
+                <hr />
+                <div class="bidding">
+                  <h3>Bidding Price (USD): <span> 6.25 Milllion </span></h3>
+                  <h3>Allotted Time : <span> 03 Minutes</span></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dynamic" id="dynamic_id">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-5"><h4>QUALIFIED BIDDERS</h4></div>
+                  <div class="col-5"><h4>RESPONSE TIME</h4></div>
+                  <div class="col-2"><h4>RANK</h4></div>
+                </div>
+                <div class="row">
+                  <div class="col-5"><h4>Grameen Phone :</h4></div>
+                  <div class="col-5" style="border-style: ridge"><h4></h4></div>
+                  <div class="col-2" style="border-style: ridge"><h4></h4></div>
+                </div>
+                <div class="row">
+                  <div class="col-5"><h4>Bangla Link :</h4></div>
+                  <div class="col-5"><h4></h4></div>
+                  <div class="col-2"><h4></h4></div>
+                </div>
+                <div class="row">
+                  <div class="col-5"><h4>Robi :</h4></div>
+                  <div class="col-5"><h4></h4></div>
+                  <div class="col-2"><h4></h4></div>
+                </div>
+                <div class="row">
+                  <div class="col-5"><h4>Teletalk :</h4></div>
+                  <div class="col-5"><h4></h4></div>
+                  <div class="col-2"><h4></h4></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="card">
+              <div class="card-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-12" id="round_id">
+                              <h3>ROUND #</h3>
+                            </div>
+                            <hr />
+                          </div>
+                          <div class="row">
+                            <div class="col-12"><h3>02</h3></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-6" id="time_id">
+                              <h3>TIME REMAINING</h3>
+                            </div>
+                            <hr />
+                            <h3>03:00.000</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <button
+                        type="button"
+                        class="btn btn-success"
+                        style="width: 100%; height: 100%"
+                      >
+                        <h1>START</h1>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <button type="button" class="btn btn-danger" id="end">
+              <h1>End Auction</h1>
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-primary" id="next">
+              <h1>Next Round</h1>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>
+{% endblock %}

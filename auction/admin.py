@@ -1,12 +1,8 @@
-from cmath import phase
-
 from django.contrib import admin
-
 from auction.models import *
+# Register your models here.
 
-admin.site.register(Auction)
 admin.site.register(Phase)
 admin.site.register(Round)
 admin.site.register(BidderInfo)
-admin.site.register(AuctionDetails)
-
+admin.site.register(Bidding)
